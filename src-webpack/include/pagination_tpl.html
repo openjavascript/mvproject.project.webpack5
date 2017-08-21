@@ -1,0 +1,55 @@
+<!-- 相关回放 -->
+<script type="text/x-jquery-tmpl" id="tmpl_pagination">
+    {%js 
+        var url = $data.url || '#';
+        var firstPage = $.isNumeric($data.firstPage)?$data.firstPage:0;
+        var curPage = $.isNumeric($data.curPage)?$data.curPage:firstPage;
+        var totalNum = $data.totalNum || 0;
+        var pageRows = $data.pageRows || 8;
+        var rollPage = $data.rollPage || 10;
+
+        var totalPage =  Math.ceil(totalNum/pageRows);
+        var prevPage = curPage - 1;
+        var nextPage = curPage + 1;
+        var maxPage = totalPage + (firstPage==0?-1:0);
+
+        /* 计算分页零时变量 */
+        var now_cool_page = rollPage/2;
+        var now_cool_page_ceil = Math.ceil(rollPage/2);
+        var pageNumTextDiff = firstPage==0?1:0;
+    %}
+
+    <div class="pagination">
+        {%if curPage > firstPage%}
+        <a href="${url}${firstPage}" data-page-num="${firstPage}"  class="home">首页</a>
+        <a href="${url}${prevPage}" data-page-num="${prevPage}"  class="prev"><i></i></a>
+        {%/if%}
+
+        {%if curPage > now_cool_page_ceil%}
+            <a href="${url}${firstPage}" data-page-num="${firstPage}">1...</a>
+        {%/if%}
+
+        {%for(var i=firstPage;i<=(maxPage>rollPage?rollPage:maxPage);i++)%}
+            {%js 
+            var pageNumI = 0;
+            if(maxPage < rollPage || curPage - now_cool_page <= 0){
+                pageNumI = i;
+            }else if(curPage + now_cool_page - 1 > maxPage){
+                pageNumI = maxPage - rollPage +i;
+            }else{
+                pageNumI = curPage - now_cool_page_ceil +i;
+            }
+            %}
+            <a href="${url}${pageNumI}" data-page-num="${pageNumI}" class="{%if pageNumI == curPage%}current{%/if%}">${pageNumI+pageNumTextDiff}</a>
+        {%/for%}
+
+        {%if curPage < maxPage-now_cool_page_ceil%}
+            <a href="${url}${maxPage}" data-page-num="${maxPage}">...${maxPage+pageNumTextDiff}</a>
+        {%/if%}
+
+        {%if curPage < maxPage%}
+        <a href="${url}${nextPage}" data-page-num="${nextPage}" class="next"><i></i></a>
+        <a href="${url}${maxPage}" data-page-num="${maxPage}" class="end">末页</a>
+        {%/if%}
+    </div>
+</script> 

@@ -1,0 +1,50 @@
+{
+  "name": "your_project_name",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "http://yourdomain.com",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yourname@yourmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "debug": "2.1.0",
+    "es5-shim": "^4.5.9",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "flexslider": "^2.5.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.12.0",
+    "i18n-webpack-plugin": "^0.2.7",
+    "ismobilejs": "^0.4.0",
+    "jquery-lazyload": "^1.9.5",
+    "jquery-query-object": "^2.1.7",
+    "json-loader": "^0.5.4",
+    "jsx-loader": "^0.13.2",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "lodash": "^4.13.1",
+    "moment": "2.10.3",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "sockjs-client": "1.0.0",
+    "style-loader": "^0.13.1",
+    "underscore": "^1.7.0",
+    "underscore-template-loader": "^0.7.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }, 
+  "dependencies": {
+    "mv.action.js": "^1.0.1",
+    "mv.const.js": "^1.0.1",
+    "mv.jquery.visibility.js": "^1.0.1",
+    "mv.log.js": "^1.0.1",
+    "swfobject-amd": "^2.3.1"
+  }
+
+}

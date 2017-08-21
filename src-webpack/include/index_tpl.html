@@ -1,0 +1,52 @@
+
+<!-- 首页热门推荐模板 -->
+<script  type="text/x-jquery-tmpl" id="index-recommend-tmpl">
+    <div class="item-content ">
+        {%each list%}
+        {%if $index<5%}
+        <div class="item" title='${$value.titlePub}'>
+            <div class="item_wrapper">
+                <dl bk="热门推荐列表项${$index+1}">
+                    <dt>
+                        <a class="_play" href="view.html?sn=${$value.sn}" 
+                            data-title-pub='${$value.titlePub}' 
+                            data-sn='${$value.sn}' 
+                            data-view-num="${$value.viewNum}"
+                            data-thumbnail="${$value.thumbnail}"
+                        >
+                            <img  src="http://p0.qhimg.com/d/inn/4dcf1657/load_player_bg.png" data-original="${$value.thumbnail}" alt="${$value.titlePub}" class="lazy">
+							<span class="_play_icon"></span>
+                            <span class="overlay"></span>
+                        </a>
+                    </dt>
+                    <dd class="camera-title">
+                        <a href="view.html?sn=${$value.sn}" target="_blank">${$value.titlePub}</a>
+                    </dd>
+                    <dd>
+                        <span class="view"><i></i>${$.formatMoney($value.viewNum)}</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        {%/if%}
+        {%/each%}
+    </div>
+</script>
+
+<!-- 频道导航模板，在qcms板块维护 -->
+<!--{--cms:block id="pddhmb"}{/cms--}-->
+<!-- /频道导航模板 -->
+
+<!-- 广告slider模板 -->
+<script type="text/x-jquery-tmpl" id="index-banner-tmpl">
+  <div class="flexslider">
+    <ul class="slides">
+    {%each data%}
+      <li>
+        <a href="${$value.banLink}" target="_blank" title="${$value.banTitle}"><img alt="${$value.banTitle}" src="${$value.banPic}" /></a>
+      </li>
+    {%/each%}
+    </ul>
+  </div>
+</script>
+

@@ -1,0 +1,45 @@
+<!-- 频道导航模板，在qcms板块维护 -->
+
+<!--{--cms:block id="pddhmb"}{/cms--} -->
+<!-- /频道导航模板 -->
+<!-- 分类列表通用模板 -->
+<script  type="text/x-jquery-tmpl" id="category-list-tmpl">
+  <div class="list-item _normal_item">
+    <div class="item-content clearfix"><!-- 类别内容 -->
+      {%each camlist%}
+      <dl>
+        <dt class="preview">
+            <a href="view.html?sn=${$value.sn}" target="_blank">
+            <img src="http://p5.qhimg.com/d/inn/c7e0892d/err_img.png" alt="${$value.titlePub}" data-original="${$value.thumbnail}" class="lazy">
+            <span class="channel">台号：${$value.channel}</span>
+            {%if online == 1 && status == 0%}
+            <span class="status"><i></i><label>直播中</label></span>
+            {%else%}
+            <span class="status offline"><i></i><label>休息中</label></span>
+            {%/if%}
+            <span class="overlay"></span>
+            </a>
+            <a href="#" class="preview-btn" data-sn="${$value.sn}">预览视频</a>
+            <a href="#" class="delete-history-btn" data-sn="${$value.sn}">删除</a>
+        </dt>
+        <dt class="preview-box">
+          <span id="play-box-${$value.sn}"></span>
+          <a href="#" class="close-preview-btn" data-sn="${$value.sn}">关闭预览</a>
+        </dt>
+        <dd class="desc" title="${$value.desc||$value.titlePub}">
+            <p class="viewnum view"><i></i>${$value.viewNum || 0}</p>
+            <a href="view.html?sn=${$value.sn}" target="_blank">${$value.titlePub || $value.desc||$value.titlePub}</a>
+        </dd>
+      </dl>
+      {%/each%}
+    </div>
+  </div>
+  {%js var data=this.data;%}
+  {%if data.totalNum>data.pageRows%}
+  <div class="page-box">
+    {%tmpl({ totalNum:data.totalNum, pageRows: data.pageRows, curPage:data.curPage, firstPage: data.firstPage } ) $("#tmpl_pagination")%}
+  </div>
+  {%/if%}
+</script>
+<!-- /分类列表通用模板 -->
+

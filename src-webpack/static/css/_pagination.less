@@ -1,0 +1,101 @@
+
+/*通用分页页码样式*/
+.pagination{
+  display: inline-block;
+  zoom:1;
+}
+.pagination:after {
+  clear: both;
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.pagination a{
+    display: block;
+    border: 1px solid #4574D8;
+    border-radius: 3px;
+    padding: 5px 11px;
+    float: left;
+    margin: 3px;
+    color: #3860B5;
+    background-color: #F1F6FF;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+    position: relative;
+}
+.pagination a:focus:before {
+    content: '';
+    display: block;
+    background-color: rgba(0, 53, 162, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    -webkit-animation: loading-w 15s 1 cubic-bezier(0.05, 0.6, 0, 1);
+}
+.pagination a.prev i,
+.pagination a.next i {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.pagination a.prev i{ border-right: 7px solid #3860B5; }
+.pagination a.prev:hover i{ border-right-color:#fff; }
+.pagination a.next i{ border-left: 7px solid #3860B5;}
+.pagination a.next:hover i{ border-left-color:#fff; }
+
+.pagination a.next i { }
+
+.pagination a.home,
+.pagination a.end{
+    background-color: #5E8FF8;
+    color: #fff;
+}
+
+.pagination a:hover{
+    background-color: #608DF8;
+    border: 1px solid #3261C5;
+    color: #fff;
+}
+.pagination a.current{
+    background-color: #8FA4D0;
+    border: 1px solid #758EBB;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.13) inset;
+    cursor: default;
+    color: #fff;
+}
+
+@-webkit-keyframes loading-w {
+  0% { width: 0px }
+  100% { width: 100% }
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: rotate(0deg) }
+  /*50% { -webkit-transform: perspective(120px) rotateY(180deg) }*/
+  100% { -webkit-transform: rotate(360deg) }
+}
+
+/*@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+*/
+
