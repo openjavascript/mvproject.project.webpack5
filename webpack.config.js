@@ -17,7 +17,7 @@ var languages = {
 };
 
 var entry = {
-    "index": _watchPath+"static/js/index.js"
+    "index": _watchPath+"/index.js"
     //, "list": _watchPath+"static/js/list.js"
     //, "view": _watchPath+"static/js/view.js"
 };
@@ -44,8 +44,14 @@ var config = {
 			, { test: /\.tpl$/, loader: "underscore-template-loader" }
 			, { test: /\.jpg$/, loader: "file-loader" },
 			, { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
+			, { test: /\.git$/, loader: "file?name=[name].[ext]?[hash]" }
+			, { test: /\.vue$/, loader: "vue-loader" }
         ]
     }
+	, babel: {  
+		presets: ['es2015', 'stage-0'],  
+		plugins: ['transform-runtime']  
+	}  
     , externals: {
         'react': 'React'
         , 'react-dom': 'ReactDOM'
@@ -60,23 +66,25 @@ var config = {
 
     }
     , plugins: [
-        new CommonsChunkPlugin({
-            name: 'vendors', 
-            chunks: chunks, 
-            minChunks: chunks.length 
-        })
-        , new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({
           $:      "jquery"
           , jQuery: "jquery"
           , Zepto: "zepto"
           , React: "react"
           , ReactDOM: "react-dom"
+        }),
+        /*
+        new CommonsChunkPlugin({
+            name: 'vendors', 
+            chunks: chunks, 
+            minChunks: chunks.length 
         })
         , new ExtractTextPlugin( 'css/[name].css')
         , new webpack.HotModuleReplacementPlugin() 
         , new I18nPlugin(
             languages[ 'cn' ]
         )
+        */
     ]
 }
 
