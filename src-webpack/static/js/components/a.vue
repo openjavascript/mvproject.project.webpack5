@@ -17,7 +17,7 @@
 export default {
   data () {
     return {
-      msg: 'Hello from Component A!'
+      msg: 'Hello from Component A!~1'
     }
   }
 }

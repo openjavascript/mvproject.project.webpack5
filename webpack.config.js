@@ -17,9 +17,9 @@ var languages = {
 };
 
 var entry = {
-    "index": _watchPath+"/index.js"
-    //, "list": _watchPath+"static/js/list.js"
-    //, "view": _watchPath+"static/js/view.js"
+    "index": _watchPath+"static/js/index.js"
+	, "list": _watchPath+"static/js/list.js"
+	, "view": _watchPath+"static/js/view.js"
 };
 
 var chunks = Object.keys(entry);
@@ -63,6 +63,7 @@ var config = {
         , alias: {
             'swfobject': __dirname + '/node_modules/swfobject-amd/swfobject.js'
         }
+		, root: [ './src-webpack' ]
 
     }
     , plugins: [
@@ -73,7 +74,6 @@ var config = {
           , React: "react"
           , ReactDOM: "react-dom"
         }),
-        /*
         new CommonsChunkPlugin({
             name: 'vendors', 
             chunks: chunks, 
@@ -81,10 +81,11 @@ var config = {
         })
         , new ExtractTextPlugin( 'css/[name].css')
         , new webpack.HotModuleReplacementPlugin() 
+		/*
         , new I18nPlugin(
             languages[ 'cn' ]
         )
-        */
+		*/
     ]
 }
 
